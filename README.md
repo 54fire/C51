@@ -10,15 +10,15 @@ sbit P10 = P1^0;
 
 /*-----------------------------------------------------
 *@Name: delay
-*@Function: 实现软件延时
+*@Function: 实现软件延时,延时itime秒
 *@Time: 2018-06-15
 ------------------------------------------------------*/
-void delay()
+void delay(int itime)
 {
     int i,j;
-    for(i = 0; i < 110; i++)
+    for(i = 0; i < itime; i++)
     {
-        j = 1000;
+        j = 1000;   //1ms
         while(j-- < 0);
     }
 }
@@ -31,7 +31,7 @@ int readKey()
 {
     if(P10 == 0)
     {
-        delay();
+        delay(20);
         if(0 == P10)
         {
             while(0 == P10);
